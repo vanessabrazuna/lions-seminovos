@@ -1,157 +1,134 @@
-# Lions Seminovos
+# Lions
 
-O objetivo principal foi entregar uma aplicação funcional, organizada e de fácil manutenção, documentando claramente as decisões técnicas, a estrutura do projeto e o processo para execução local.
+![Descrição](https://i.postimg.cc/bv23dQLy/lions.png)
 
----
-
-## Visão Geral da Solução
-
-O projeto foi desenvolvido utilizando **Next.js 15 (App Router)** com **React 19**, priorizando:
-
-* Organização clara de responsabilidades
-* Componentização reutilizável
-* Tipagem forte com TypeScript
-* Estilização consistente com Tailwind CSS
-* Boas práticas de lint, formatação e arquitetura
-
-A aplicação segue uma abordagem moderna de desenvolvimento frontend, focada em legibilidade, escalabilidade e facilidade de onboarding para novos desenvolvedores.
+Projeto desenvolvido com **Next.js 14**, utilizando **React 19**, **TypeScript** e **Tailwind CSS v3**, seguindo o padrão **App Router**.
 
 ---
 
-## Principais Tecnologias Utilizadas
+## Stack e Tecnologias
 
-* **Next.js 15** – Framework React com renderização híbrida (SSR/SSG)
-* **React 19** – Biblioteca base para construção da interface
-* **TypeScript** – Tipagem estática para maior segurança e previsibilidade
-* **Tailwind CSS** – Estilização utilitária e consistente
-* **React Hook Form + Zod** – Gerenciamento e validação de formulários
-* **Contentlayer** – Organização e consumo de conteúdo estruturado
-* **pnpm** – Gerenciador de pacotes
-
----
-
-## Decisões Técnicas
-
-### Arquitetura
-
-* Utilização do **App Router** do Next.js para melhor separação entre layouts, páginas e componentes.
-* Componentes desacoplados e reutilizáveis, priorizando composição ao invés de herança.
-* Separação clara entre:
-
-  * Componentes de UI
-  * Lógica de formulários
-  * Conteúdo estático/dinâmico
-
-### Estilização
-
-* Tailwind CSS foi escolhido pela produtividade e padronização visual.
-* Uso de utilitários como `clsx` e `tailwind-merge` para controle de variantes e classes condicionais.
-
-### Formulários e Validação
-
-* **React Hook Form** para performance e simplicidade no gerenciamento de estado.
-* **Zod** para validações declarativas e reutilizáveis.
-
-### Qualidade de Código
-
-* ESLint configurado com `eslint-config-next`.
-* Tipagem estrita para reduzir erros em tempo de execução.
+* **Next.js** 14.2.35
+* **React** 19.2.3
+* **TypeScript** 5
+* **Tailwind CSS** 3.4.1
+* **React Hook Form** + **Zod** (validação de formulários)
+* **Radix UI (Slot)**
+* **Lucide Icons**
+* **Embla Carousel**
+* **ESLint** (configuração oficial do Next.js)
+* **next-contentlayer**
+* **react-markdown** + **remark-gfm**
+* **clsx**, **tailwind-merge**, **class-variance-authority**
+* **tailwindcss-animate**
 
 ---
 
-## Organização do Projeto
+## Pré-requisitos
 
-A estrutura segue os padrões recomendados pelo Next.js:
-
-```
-/app
-  /layout.tsx        # Layout raiz da aplicação (App Router)
-  /page.tsx          # Página principal
-
-/components
-  # Componentes de UI reutilizáveis e desacoplados
-
-/data
-  # Dados estáticos, mocks e fontes de dados organizadas por domínio
-
-/hooks
-  # Hooks customizados para reutilização de lógica de estado e efeitos
-
-/lib
-  # Funções utilitárias, helpers e integrações compartilhadas
-
-/pages
-  # Rotas específicas que não utilizam o App Router (quando aplicável)
-
-/styles
-  # Estilos globais, configurações do Tailwind e arquivos base
-
-/templates
-  # Templates de páginas ou seções compostas por múltiplos componentes
-  # Conteúdo gerenciado pelo Contentlayer
-```
-
-Essa separação facilita a leitura do código, manutenção e evolução do projeto.
+* Node.js 20 ou superior
+* Gerenciador de pacotes: npm, yarn, pnpm ou bun
 
 ---
 
-## Como Rodar o Projeto Localmente
+## Instalação
 
-### Pré-requisitos
+Instale as dependências do projeto:
 
-* **Node.js** versão 18 ou superior
-* **pnpm** instalado globalmente
-
-### Passo a passo
-
-1. Clone o repositório:
-
-```
-git clone <https://github.com/vanessabrazuna/lions-seminovos.git>
-```
-
-2. Acesse a pasta do projeto:
-
-```
-cd lions-seminovos
-```
-
-3. Instale as dependências:
-
-```
+```bash
+npm install
+# ou
+yarn install
+# ou
 pnpm install
+# ou
+bun install
 ```
 
-4. Rode o projeto em modo desenvolvimento:
+---
 
-```
+## Ambiente de Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento:
+
+```bash
+npm run dev
+# ou
+yarn dev
+# ou
 pnpm dev
+# ou
+bun dev
 ```
 
-5. Acesse no navegador:
+A aplicação estará disponível em:
 
 ```
 http://localhost:3000
 ```
 
-### Build de Produção
+---
 
-Para gerar o build:
+## Scripts Disponíveis
+
+* `dev` – inicia o servidor de desenvolvimento
+* `build` – gera o build de produção
+* `start` – inicia o servidor em modo produção
+* `lint` – executa o ESLint
+
+---
+
+## Estrutura do Projeto
+
+O projeto utiliza o **App Router** do Next.js:
 
 ```
-pnpm build
+app/
+ ├─ layout.tsx
+ ├─ page.tsx
+ └─ components/
+ ├─ data/
+ └─ templates/
+public/
 ```
 
-Para rodar em modo produção:
+As páginas são definidas diretamente dentro da pasta `app/`, seguindo o padrão do Next.js 14.
 
+---
+
+## Estilos e UI
+
+* **Tailwind CSS v3** para estilização
+* Utilização de utilitários como `clsx`, `tailwind-merge` e `class-variance-authority`
+* Componentes desacoplados e reutilizáveis
+* Animações com `tailwindcss-animate`
+
+---
+
+## Fontes
+
+O projeto utiliza o `next/font` para otimização automática de fontes, garantindo melhor performance e carregamento.
+
+---
+
+## Build e Produção
+
+Para gerar o build de produção:
+
+```bash
+pnpm run build
 ```
+
+Para executar o projeto em produção:
+
+```bash
 pnpm start
 ```
 
 ---
 
-## Considerações Finais
+## Documentação
 
-A solução foi pensada para ser clara, extensível e alinhada às práticas modernas de desenvolvimento frontend. O foco principal foi entregar código legível, bem estruturado e fácil de evoluir, mantendo simplicidade sem abrir mão de boas decisões arquiteturais.
-
-Qualquer dúvida ou melhoria futura pode ser incorporada facilmente devido à organização adotada.
+* Next.js: [https://nextjs.org/docs](https://nextjs.org/docs)
+* React: [https://react.dev](https://react.dev)
+* Tailwind CSS: [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
